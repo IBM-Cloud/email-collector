@@ -1,0 +1,8 @@
+applications:
+- name: email-collector
+  host: email-collector
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 128M
+  buildpack: sdk-for-nodejs
