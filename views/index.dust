@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>{title}</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Collect ALL the emails!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <!-- CSS -->
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container-fluid splash">
+
+      <!-- Header -->
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-2 col-lg-6 col-md-6 col-sm-8 hidden-xs">
+            <div class="header-block">
+              <img src="../images/IBM_Bluemix_logo.png" id="large-bluemix-logo"></img>
+              <h1 id="large-header-title">Email Collector</h1>
+            </div>
+          </div>
+          <div class="col-xs-offset-2 col-xs-8 hidden-lg hidden-md hidden-sm">
+            <div class="header-block">
+              <img src="../images/IBM_Bluemix_logo.png" id="small-bluemix-logo"></img>
+              <h1 id="small-header-title">Email Collector</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page Content -->
+      <div class="row col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+        <div class="center-wrapper">
+          <ul>
+            <li>Hello</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clear-footer"></div>
+    </div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="muted credit" style="margin: 0px;">Made by <a href="http://twitter.com/jakepeyser">@jakepeyser</a> - Powered by <a href="https://ibm.biz/email-collector-bluemix" target="_blank">IBM Bluemix</a></p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type='text/javascript', src="javascript/index.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,82 @@
+.splash {
+  padding: 0px;
+  min-width: 100%;
+}
+
+.container-fluid .jumbotron {
+  padding: 0px;
+  border-radius: 0px;
+  padding: 7px 0px 7px 0px;
+  background-color: #2c3e50;
+  color: #FFF;
+}
+
+.header-block {
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+#large-bluemix-logo{
+  width: 8vw;
+  display: inline-block;
+  margin: 0px 10px 0px 8px;
+  padding: 3px 0px;
+}
+
+#large-header-title {
+  display: inline;
+  vertical-align: middle;
+  margin: 0px;
+  font-size: 5vw;
+  font-weight: normal;
+}
+
+#small-bluemix-logo{
+  width: 8vw;
+  display: inline-block;
+  margin: 0px 10px 0px 8px;
+}
+
+#small-header-title {
+  display: inline;
+  vertical-align: middle;
+  margin: 0px;
+  font-size: 8vw;
+  font-weight: normal;
+}
+
+.splash .row {
+  padding: 0px;
+}
+
+.center-wrapper{
+  margin: auto;
+  max-width: 1024px;
+}
+
+.clear-footer {
+  height: 452px;
+  clear: both;
+}
+
+.footer{
+  background-color: #2c3e50;
+  width: 100%;
+  height: 50px;
+  color: white;
+  margin-top: 100px;
+}
+
+.credit{
+  text-align: center;
+  padding-top: 14px;
+}
+
+.credit a {
+  color: #FFF;
+}
+
+.credit a:hover {
+  color: #FFF;
+}
