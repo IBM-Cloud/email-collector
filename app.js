@@ -70,7 +70,7 @@ dbHelper.dbExists(nano, dbName, function (err,res) {
 var twilioCreds = getServiceCreds(appEnv, "email-collector-sms"),
     twilioClient = require('twilio')(twilioCreds.accountSID, twilioCreds.authToken),
     twilioHelper = require("./lib/twilioHelper.js"),
-    twilioNumber = "15123611684";
+    twilioNumber = require("./lib/twilioNumber.json").twilioNum;
 
 //---Set up Cat API--------------------------------------------------------------
 var catCreds = getServiceCreds(appEnv, "email-collector-cats"),
@@ -81,7 +81,8 @@ var catCreds = getServiceCreds(appEnv, "email-collector-cats"),
 // Splash screen
 app.get("/", function (request, response) {
     response.render('index', {
-      title : "Email Collector"
+      title : "Email Collector",
+      phone : twilioNumber
     });
 });
 
@@ -90,6 +91,13 @@ app.get("/", function (request, response) {
 // Getting list of emails
 app.get('/api/v1/db/get_emails', function(request, response) {
   dbHelper.getRecords(db, 'emails', 'emails_index', function(result) {
+    response.send(result);
+  });
+});
+
+// Getting list of errors
+app.get('/api/v1/db/get_errors', function(request, response) {
+  dbHelper.getRecords(db, 'errors', 'errors_index', function(result) {
     response.send(result);
   });
 });
@@ -173,15 +181,16 @@ function validateEmail(email) {
 function receivedResponse(validEmail, phoneNum) {
 
   // Formulate a response based on if the texted email was valid
-  var response;
-  if (validEmail)
-    response = "Your email was received, thank you!";
-  else
-    response = "Sorry, your email was invalid. Please try again or get help from a Bluemix SME."
+  if (!appEnv.isLocal) {
+    var response;
+    if (validEmail)
+      response = "Your email was received, thank you!";
+    else
+      response = "Sorry, your email was invalid. Please try again or get help from a Bluemix SME."
 
-  // Send message to rep if not locally testing
-  if (!appEnv.isLocal)
+    // Send reply message to attendee
     twilioHelper.sendTextMessage(twilioClient, twilioNumber, phoneNum, response);
+  }
 }
 
 // Save email record with the input values

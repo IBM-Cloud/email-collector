@@ -59,43 +59,56 @@ html, body {
 
 #description {
   text-align: center;
-  font-size: 16px;
+  text-align: -webkit-center;
+  text-align: -moz-center
+  padding: 0px;
+}
+
+#description p {
+  font-size: 24px;
+  margin-bottom: 0px;
 }
 
 #phoneNum {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   white-space: nowrap;
-}
-
-.center-wrapper{
-  margin: auto;
-  max-width: 1024px;
-}
-
-#email-list {
-  list-style-type: none;
 }
 
 #btn-row {
   text-align: center;
   text-align: -webkit-center;
+  text-align: -moz-center
 }
 
 #reload-btn{
   margin: auto;
   display: block;
   background-color: #5596E6;
-  width: 200px;
+  width: 70%;
+  min-width: 160px;
   margin: 10px 0px;
   border-radius: 0px;
 }
 
-li {
+.center-wrapper{
+  margin: auto;
+  max-width: 1024px;
+  text-align: center;
+  text-align: -webkit-center;
+  text-align: -moz-center
+}
+
+#email-list {
+  list-style-type: none;
+  margin-bottom: 0px;
+}
+
+ul li {
   display: inline-block;
 }
 
-li p {
+ul li p {
   position: absolute;
   font-size: 18px;
   display: inline;
@@ -103,7 +116,7 @@ li p {
   margin-left: -285px;
 }
 
-li p span {
+ul li p span {
   color: white;
   letter-spacing: -1px;
   background: rgb(0, 0, 0); /* fallback color */
@@ -111,7 +124,7 @@ li p span {
   padding: 5px 8px;
 }
 
-li img {
+ul li img {
   float: left;
   border: 5px solid #fff;
   width: 300px;
@@ -125,9 +138,45 @@ li img {
   transition: box-shadow 0.5s ease;
 }
 
-li img:hover {
+ul li img:hover {
   -webkit-box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
   box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+}
+
+#errors-row {
+  display: none;
+}
+
+.boxed {
+  display: block;
+  border: 1px solid #2c3e50;
+  padding: 0px 15px;
+  margin-bottom: 15px;
+}
+
+legend {
+  font-size: 22px;
+  max-width: 155px;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 0px;
+  border:none;
+}
+
+.errorLabel {
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+#error-list {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.errorField {
+font-size: 15px;
 }
 
 .footer{
