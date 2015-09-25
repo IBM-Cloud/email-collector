@@ -1,1 +1,9 @@
+# Logs
+logs
+*.log
+
 .DS_Store
+node_modules
+vcap-local.json
+public/vendor/
+lib/twilioNumber.json
