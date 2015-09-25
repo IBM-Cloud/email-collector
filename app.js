@@ -6,6 +6,8 @@ var express = require('express'),
     http = require("http"),
     dust = require("dustjs-linkedin"),
     consolidate = require("consolidate"),
+    request = require("request"),
+    parseString = require('xml2js').parseString;
     cfenv = require("cfenv");
 
 //---Deployment Tracker---------------------------------------------------------
@@ -69,6 +71,10 @@ var twilioCreds = getServiceCreds(appEnv, "email-collector-sms"),
     twilioClient = require('twilio')(twilioCreds.accountSID, twilioCreds.authToken),
     twilioHelper = require("./lib/twilioHelper.js"),
     twilioNumber = "15123611684";
+
+//---Set up Cat API--------------------------------------------------------------
+var catCreds = getServiceCreds(appEnv, "email-collector-cats"),
+    getCatImageUrl = "http://www." + catCreds.host + "images/get?api_key=" + catCreds.key + "&format=xml&type=jpg,png&size=small";
 
 //---Web Page HTTP Requests-----------------------------------------------------
 
@@ -180,13 +186,33 @@ function receivedResponse(validEmail, phoneNum) {
 
 // Save email record with the input values
 function saveEmailRecord(phoneNum, email) {
-  var emailRecord = {
-    'type' : "email",
-    'phone' : phoneNum,
-    'email' : email
-  };
 
-  dbHelper.insertRecord(db, emailRecord, function(result) {});
+  // Make a request to The Cat API for a new cat image
+  request(getCatImageUrl, function(err, message, result) {
+    if (!err) {
+      // Parse returned XML result to get cat image URL
+      parseString(result, function (err, result) {
+        if (!err) {
+          var catImageUrl = result.response.data[0].images[0].image[0].url[0];
+          var emailRecord = {
+            'type' : "email",
+            'phone' : phoneNum,
+            'catUrl' : catImageUrl,
+            'email' : email
+          };
+
+          // Save new email record to Cloudant
+          dbHelper.insertRecord(db, emailRecord, function(result) {});
+        }
+        else {
+          console.error("Error parsing XML return from The Cat API")
+        }
+      });
+    }
+    else {
+      console.error("Error requesting image from The Cat API");
+    }
+  })
 }
 
 // Save an error record with the input values
@@ -215,6 +241,7 @@ function seedDB() {
                 uniqueId : doc._id,
                 revNum : doc._rev,
                 phoneNum : doc.phone,
+                catImageUrl : doc.catUrl,
                 emailAddress : doc.email
               });
             }

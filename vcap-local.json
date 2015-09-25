@@ -1,0 +1,36 @@
+{
+   "services": {
+      "user-provided": [
+         {
+            "name": "email-collector-sms",
+            "label": "user-provided",
+            "credentials": {
+               "accountSID": "<YourSID>",
+               "authToken": "<YourToken>"
+            }
+         },
+         {
+            "name": "email-collector-cats",
+            "label": "user-provided",
+            "credentials": {
+               "host": "thecatapi.com/api/",
+               "key": "<YourApiKey>"
+            }
+         }
+      ],
+      "cloudantNoSQLDB": [
+         {
+            "name": "email-collector-datastore",
+            "label": "cloudantNoSQLDB",
+            "plan": "Shared",
+            "credentials": {
+               "username": "<YourUsername>",
+               "password": "<YourPassword>",
+               "host": "<YourHost>",
+               "port": 443,
+               "url": "<YourUrl>"
+            }
+         }
+      ]
+   }
+}
