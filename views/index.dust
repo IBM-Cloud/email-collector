@@ -22,13 +22,13 @@
         <div class="row">
           <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-2 col-lg-6 col-md-6 col-sm-8 hidden-xs">
             <div class="header-block">
-              <img src="../images/IBM_Bluemix_logo.png" id="large-bluemix-logo"></img>
+              <img src="../images/bluemix_logo.png" id="large-bluemix-logo"></img>
               <h1 id="large-header-title">Email Collector</h1>
             </div>
           </div>
           <div class="col-xs-offset-2 col-xs-8 hidden-lg hidden-md hidden-sm">
             <div class="header-block">
-              <img src="../images/IBM_Bluemix_logo.png" id="small-bluemix-logo"></img>
+              <img src="../images/bluemix_logo.png" id="small-bluemix-logo"></img>
               <h1 id="small-header-title">Email Collector</h1>
             </div>
           </div>
